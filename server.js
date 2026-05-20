@@ -148,7 +148,9 @@ app.post('/api/v1/subscribe', (req, res) => {
     res.json({ status: 'success' });
 });
 
-PORT = process.env.PORT || 3000;
+// ================================================================
+// 4. Serverin Başladılması (Təkrarlanan sətirlər silindi)
+// ================================================================
 app.listen(PORT, () => {
-    console.log(`Server ${PORT} portunda işləyir`);
+    console.log(`Server ${PORT} portunda uğurla işə düşdü.`);
 });
