@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware - JSON və Statik faylların oxunması üçün
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 // ================================================================
 // 1. Verilənlər Bazası Əlaqəsi və Cədvəlin Yaradılması
