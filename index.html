@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>SkyCast Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">SkyCast ☁️</div>
+        <div class="nav-links">
+            <a href="#">Ana Səhifə</a>
+            <a href="#">Həftəlik</a>
+            <button id="loginBtn" class="btn-login">Giriş Et</button>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <section class="hero-section">
+            <h1 id="welcomeText">Bakı, Azərbaycan</h1>
+            <p class="date-text" id="currentDate"></p>
+        </section>
+
+        <div class="content-grid">
+
+            <!-- CRUD PANELİ -->
+            <div class="card glass-effect full-width">
+                <h3>🌍 Şəhər Hava Məlumatları</h3>
+
+                <!-- Əlavə et formu -->
+                <div class="crud-form">
+                    <h4>Yeni Şəhər Əlavə Et</h4>
+                    <div class="form-row">
+                        <input type="text" id="inputCity"      placeholder="Şəhər adı (məs: Bakı)">
+                        <input type="text" id="inputTemp"      placeholder="Temp (məs: 24°C)">
+                        <input type="text" id="inputCondition" placeholder="Durum (məs: Günəşli)">
+                        <input type="text" id="inputWind"      placeholder="Külək (məs: 12 km/s)">
+                        <input type="text" id="inputHumidity"  placeholder="Rütubət (məs: 45%)">
+                        <button id="addCityBtn" class="btn-add">➕ Əlavə Et</button>
+                    </div>
+                </div>
+
+                <!-- Yenilə formu -->
+                <div class="crud-form">
+                    <h4>Şəhər Məlumatını Yenilə</h4>
+                    <div class="form-row">
+                        <input type="number" id="updateId"        placeholder="Şəhər ID-si">
+                        <input type="text"   id="updateTemp"      placeholder="Yeni temp (məs: 28°C)">
+                        <input type="text"   id="updateCondition" placeholder="Yeni durum (məs: Buludlu)">
+                        <button id="updateCityBtn" class="btn-update">✏️ Yenilə</button>
+                    </div>
+                </div>
+
+                <!-- Şəhər cədvəli -->
+                <h4>Mövcud Şəhərlər</h4>
+                <table class="weather-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Şəhər</th>
+                            <th>Temp</th>
+                            <th>Durum</th>
+                            <th>Külək</th>
+                            <th>Rütubət</th>
+                            <th>Əməliyyat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cityTableBody">
+                        <!-- Məlumatlar buraya JS ilə yazılacaq -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Həftəlik proqnoz -->
+            <div class="card glass-effect">
+                <h3>📅 Həftəlik Proqnoz</h3>
+                <button id="addForecastBtn" class="btn-action">Yeni Gün Əlavə Et</button>
+                <ul id="forecastList" class="styled-list"></ul>
+            </div>
+
+            <!-- Hava qeydləri -->
+            <div class="card glass-effect">
+                <h3>📝 Hava Qeydləri</h3>
+                <textarea id="noteInput" placeholder="Hava haqqında düşüncələriniz..."></textarea>
+                <div class="counter-box">
+                    <span id="charCount">Simvol sayı: 0</span>
+                </div>
+            </div>
+
+            <!-- Görünüş rejimi -->
+            <div class="card glass-effect">
+                <h3>🎨 Görünüş Rejimi</h3>
+                <p>Səhifənin atmosferini dəyişin:</p>
+                <select id="colorSelect">
+                    <option value="linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)" selected>Səma Mavisi</option>
+                    <option value="linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)">Yaz Təravəti</option>
+                    <option value="#fdfbfb">Qar Bəyazı</option>
+                    <option value="#ffecd2">İlıq Şaftalı</option>
+                </select>
+            </div>
+
+            <!-- Abunəlik -->
+            <div class="card glass-effect">
+                <h3>🔐 Abunəlik Paneli</h3>
+                <form id="subscribeForm">
+                    <input type="password" id="passInput" placeholder="Şifrənizi daxil edin">
+                    <p id="errorMsg" style="color:red; display:none; margin-top:5px; font-size:14px;">
+                        ⚠️ Şifrə ən az 8 simvol olmalıdır!
+                    </p>
+                    <button type="submit" class="btn-submit">Təsdiqlə</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
